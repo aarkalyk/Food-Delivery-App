@@ -6,9 +6,11 @@
 //  Copyright (c) 2015 Arkalyk. All rights reserved.
 //
 
+
+#import <NSData+Base64Additions.h>
 #import <skpsmtpmessage/SKPSMTPMessage.h>
 #import "UserInputViewController.h"
-#import <NSData+Base64Additions.h>
+
 
 @interface UserInputViewController ()<SKPSMTPMessageDelegate>
 
