@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Arkalyk. All rights reserved.
 //
 
-#import "cartViewController.h"
-#import "HistoryViewController.h"
 #import "HistoryCollectionViewCell.h"
+#import "HistoryViewController.h"
+#import "cartViewController.h"
 
 @interface HistoryViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
