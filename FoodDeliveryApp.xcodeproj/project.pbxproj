@@ -241,18 +241,18 @@
 		3F5758F71B5CB10000E11183 /* FoodDeliveryApp */ = {
 			isa = PBXGroup;
 			children = (
-				3F9A71E41B690D6A00064FFA /* Cart */,
-				3F9A71E31B690D4800064FFA /* InitialPages */,
-				3F9A71E21B690D2300064FFA /* History */,
-				3F9A71E11B690D0000064FFA /* Restaurant */,
-				3F9A71E01B690CB300064FFA /* Menu */,
-				3F9A71DF1B690C4C00064FFA /* More */,
+				3F5759021B5CB10000E11183 /* Main.storyboard */,
 				3F5758FC1B5CB10000E11183 /* AppDelegate.h */,
 				3F5758FD1B5CB10000E11183 /* AppDelegate.m */,
-				3F5759051B5CB10000E11183 /* Images.xcassets */,
-				3F5759071B5CB10000E11183 /* LaunchScreen.xib */,
-				3F5759021B5CB10000E11183 /* Main.storyboard */,
+				3F9A71E31B690D4800064FFA /* InitialPages */,
+				3F9A71E01B690CB300064FFA /* Menu */,
+				3F9A71E11B690D0000064FFA /* Restaurant */,
+				3F9A71E21B690D2300064FFA /* History */,
+				3F9A71DF1B690C4C00064FFA /* More */,
+				3F9A71E41B690D6A00064FFA /* Cart */,
 				3F5758F81B5CB10000E11183 /* Supporting Files */,
+				3F5759071B5CB10000E11183 /* LaunchScreen.xib */,
+				3F5759051B5CB10000E11183 /* Images.xcassets */,
 			);
 			path = FoodDeliveryApp;
 			sourceTree = "<group>";
