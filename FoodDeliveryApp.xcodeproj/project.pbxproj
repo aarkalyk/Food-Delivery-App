@@ -241,75 +241,17 @@
 		3F5758F71B5CB10000E11183 /* FoodDeliveryApp */ = {
 			isa = PBXGroup;
 			children = (
-				3F2B94721B62004A00C794E5 /* RestaurantsViewController.h */,
-				3F2B94731B62004A00C794E5 /* RestaurantsViewController.m */,
+				3F9A71E41B690D6A00064FFA /* Cart */,
+				3F9A71E31B690D4800064FFA /* InitialPages */,
+				3F9A71E21B690D2300064FFA /* History */,
+				3F9A71E11B690D0000064FFA /* Restaurant */,
+				3F9A71E01B690CB300064FFA /* Menu */,
+				3F9A71DF1B690C4C00064FFA /* More */,
 				3F5758FC1B5CB10000E11183 /* AppDelegate.h */,
 				3F5758FD1B5CB10000E11183 /* AppDelegate.m */,
-				3F5758FF1B5CB10000E11183 /* ViewController.h */,
-				3F5759001B5CB10000E11183 /* ViewController.m */,
-				3F5759201B5CB51C00E11183 /* InfoViewController.h */,
-				3F5759211B5CB51C00E11183 /* InfoViewController.m */,
-				3F5759021B5CB10000E11183 /* Main.storyboard */,
-				3FFCF3E21B662E72000294DA /* DetailednewsViewController.h */,
-				3FFCF3E31B662E72000294DA /* DetailednewsViewController.m */,
-				3FFCF3DF1B662986000294DA /* News.h */,
-				3FFCF3E01B662986000294DA /* News.m */,
-				3FFCF3D21B661064000294DA /* AboutViewController.h */,
-				3FFCF3D31B661064000294DA /* AboutViewController.m */,
-				3FFCF3C91B6605F2000294DA /* MoreViewController.h */,
-				3FFCF3CA1B6605F2000294DA /* MoreViewController.m */,
-				3FFCF3EB1B664355000294DA /* SettingsViewController.h */,
-				3FFCF3EC1B664355000294DA /* SettingsViewController.m */,
-				3FFCF3D91B661E14000294DA /* NewsViewController.h */,
-				3FFCF3DA1B661E14000294DA /* NewsViewController.m */,
-				3FFCF3E51B66315F000294DA /* DeliveryViewController.h */,
-				3FFCF3E61B66315F000294DA /* DeliveryViewController.m */,
-				3FFCF3E81B663221000294DA /* DeliveryCollectionViewCell.h */,
-				3FFCF3E91B663221000294DA /* DeliveryCollectionViewCell.m */,
-				3FFCF3CC1B66075E000294DA /* MoreCollectionViewCell.h */,
-				3FFCF3CD1B66075E000294DA /* MoreCollectionViewCell.m */,
-				3FFCF3CF1B660C59000294DA /* MoreItem.h */,
-				3FFCF3D01B660C59000294DA /* MoreItem.m */,
-				3F2B94811B62444600C794E5 /* MapViewController.h */,
-				3F2B94821B62444600C794E5 /* MapViewController.m */,
-				3F2B947B1B62238E00C794E5 /* RestaurantDetailViewController.h */,
-				3F2B947C1B62238E00C794E5 /* RestaurantDetailViewController.m */,
-				3F2B947E1B622C7600C794E5 /* AlbumCollectionViewCell.h */,
-				3F2B947F1B622C7600C794E5 /* AlbumCollectionViewCell.m */,
-				3F5B55541B5F7BA9005514B1 /* HistoryCollectionViewCell.h */,
-				3F5B55551B5F7BA9005514B1 /* HistoryCollectionViewCell.m */,
-				3FFCF3DC1B6622FF000294DA /* NewsCollectionViewCell.h */,
-				3FFCF3DD1B6622FF000294DA /* NewsCollectionViewCell.m */,
-				3F5B55511B5F6B78005514B1 /* HistoryViewController.h */,
-				3F5B55521B5F6B78005514B1 /* HistoryViewController.m */,
-				3F57592B1B5CCADF00E11183 /* MenuItemsViewController.h */,
-				3F57592C1B5CCADF00E11183 /* MenuItemsViewController.m */,
-				3F2B94751B6201DA00C794E5 /* Restaurant.h */,
-				3F2B94761B6201DA00C794E5 /* Restaurant.m */,
-				3F8C88C71B60CB51002365D3 /* itemQuantityCollectionViewCell.h */,
-				3F8C88C81B60CB51002365D3 /* itemQuantityCollectionViewCell.m */,
-				3F57593A1B5D097200E11183 /* FoodDescriptionViewController.h */,
-				3F57593B1B5D097200E11183 /* FoodDescriptionViewController.m */,
-				3F5B55591B5FA70B005514B1 /* QuantityCollectionViewCell.h */,
-				3F5B555A1B5FA70B005514B1 /* QuantityCollectionViewCell.m */,
-				3F5759231B5CBC7000E11183 /* MenuViewController.h */,
-				3F5759241B5CBC7000E11183 /* MenuViewController.m */,
-				3F4AC9771B5E009C00429B2C /* cartViewController.h */,
-				3F4AC9781B5E009C00429B2C /* cartViewController.m */,
-				3F57592E1B5CCFED00E11183 /* MenuItem.h */,
-				3F57592F1B5CCFED00E11183 /* MenuItem.m */,
-				3F5759261B5CBDB200E11183 /* customMenuCell.h */,
-				3F5759271B5CBDB200E11183 /* customMenuCell.m */,
-				3F2B94781B620D2500C794E5 /* RestaurantCollectionViewCell.h */,
-				3F2B94791B620D2500C794E5 /* RestaurantCollectionViewCell.m */,
-				3F4AC97D1B5E180D00429B2C /* cartCollectionViewCell.h */,
-				3F4AC97E1B5E180D00429B2C /* cartCollectionViewCell.m */,
-				3F5759351B5CE2C600E11183 /* Product.h */,
-				3F5759361B5CE2C600E11183 /* Product.m */,
-				3F4AC9821B5E514400429B2C /* UserInputViewController.h */,
-				3F4AC9831B5E514400429B2C /* UserInputViewController.m */,
 				3F5759051B5CB10000E11183 /* Images.xcassets */,
 				3F5759071B5CB10000E11183 /* LaunchScreen.xib */,
+				3F5759021B5CB10000E11183 /* Main.storyboard */,
 				3F5758F81B5CB10000E11183 /* Supporting Files */,
 			);
 			path = FoodDeliveryApp;
@@ -366,6 +308,112 @@
 				3F5759131B5CB10000E11183 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3F9A71DF1B690C4C00064FFA /* More */ = {
+			isa = PBXGroup;
+			children = (
+				3FFCF3EB1B664355000294DA /* SettingsViewController.h */,
+				3FFCF3EC1B664355000294DA /* SettingsViewController.m */,
+				3FFCF3DF1B662986000294DA /* News.h */,
+				3FFCF3E01B662986000294DA /* News.m */,
+				3FFCF3DC1B6622FF000294DA /* NewsCollectionViewCell.h */,
+				3FFCF3DD1B6622FF000294DA /* NewsCollectionViewCell.m */,
+				3FFCF3D91B661E14000294DA /* NewsViewController.h */,
+				3FFCF3DA1B661E14000294DA /* NewsViewController.m */,
+				3FFCF3E21B662E72000294DA /* DetailednewsViewController.h */,
+				3FFCF3E31B662E72000294DA /* DetailednewsViewController.m */,
+				3FFCF3E81B663221000294DA /* DeliveryCollectionViewCell.h */,
+				3FFCF3E91B663221000294DA /* DeliveryCollectionViewCell.m */,
+				3FFCF3E51B66315F000294DA /* DeliveryViewController.h */,
+				3FFCF3E61B66315F000294DA /* DeliveryViewController.m */,
+				3FFCF3D21B661064000294DA /* AboutViewController.h */,
+				3FFCF3D31B661064000294DA /* AboutViewController.m */,
+				3FFCF3CC1B66075E000294DA /* MoreCollectionViewCell.h */,
+				3FFCF3CD1B66075E000294DA /* MoreCollectionViewCell.m */,
+				3FFCF3CF1B660C59000294DA /* MoreItem.h */,
+				3FFCF3D01B660C59000294DA /* MoreItem.m */,
+				3FFCF3C91B6605F2000294DA /* MoreViewController.h */,
+				3FFCF3CA1B6605F2000294DA /* MoreViewController.m */,
+			);
+			name = More;
+			sourceTree = "<group>";
+		};
+		3F9A71E01B690CB300064FFA /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				3F57592E1B5CCFED00E11183 /* MenuItem.h */,
+				3F57592F1B5CCFED00E11183 /* MenuItem.m */,
+				3F57592B1B5CCADF00E11183 /* MenuItemsViewController.h */,
+				3F57592C1B5CCADF00E11183 /* MenuItemsViewController.m */,
+				3F5759231B5CBC7000E11183 /* MenuViewController.h */,
+				3F5759241B5CBC7000E11183 /* MenuViewController.m */,
+				3F5759351B5CE2C600E11183 /* Product.h */,
+				3F5759361B5CE2C600E11183 /* Product.m */,
+				3F5B55591B5FA70B005514B1 /* QuantityCollectionViewCell.h */,
+				3F5B555A1B5FA70B005514B1 /* QuantityCollectionViewCell.m */,
+				3F8C88C71B60CB51002365D3 /* itemQuantityCollectionViewCell.h */,
+				3F8C88C81B60CB51002365D3 /* itemQuantityCollectionViewCell.m */,
+				3F57593A1B5D097200E11183 /* FoodDescriptionViewController.h */,
+				3F57593B1B5D097200E11183 /* FoodDescriptionViewController.m */,
+				3F5759261B5CBDB200E11183 /* customMenuCell.h */,
+				3F5759271B5CBDB200E11183 /* customMenuCell.m */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
+		3F9A71E11B690D0000064FFA /* Restaurant */ = {
+			isa = PBXGroup;
+			children = (
+				3F2B947E1B622C7600C794E5 /* AlbumCollectionViewCell.h */,
+				3F2B947F1B622C7600C794E5 /* AlbumCollectionViewCell.m */,
+				3F2B94811B62444600C794E5 /* MapViewController.h */,
+				3F2B94821B62444600C794E5 /* MapViewController.m */,
+				3F2B94751B6201DA00C794E5 /* Restaurant.h */,
+				3F2B94761B6201DA00C794E5 /* Restaurant.m */,
+				3F2B94781B620D2500C794E5 /* RestaurantCollectionViewCell.h */,
+				3F2B94791B620D2500C794E5 /* RestaurantCollectionViewCell.m */,
+				3F2B947B1B62238E00C794E5 /* RestaurantDetailViewController.h */,
+				3F2B947C1B62238E00C794E5 /* RestaurantDetailViewController.m */,
+				3F2B94721B62004A00C794E5 /* RestaurantsViewController.h */,
+				3F2B94731B62004A00C794E5 /* RestaurantsViewController.m */,
+			);
+			name = Restaurant;
+			sourceTree = "<group>";
+		};
+		3F9A71E21B690D2300064FFA /* History */ = {
+			isa = PBXGroup;
+			children = (
+				3F5B55541B5F7BA9005514B1 /* HistoryCollectionViewCell.h */,
+				3F5B55551B5F7BA9005514B1 /* HistoryCollectionViewCell.m */,
+				3F5B55511B5F6B78005514B1 /* HistoryViewController.h */,
+				3F5B55521B5F6B78005514B1 /* HistoryViewController.m */,
+			);
+			name = History;
+			sourceTree = "<group>";
+		};
+		3F9A71E31B690D4800064FFA /* InitialPages */ = {
+			isa = PBXGroup;
+			children = (
+				3F5758FF1B5CB10000E11183 /* ViewController.h */,
+				3F5759001B5CB10000E11183 /* ViewController.m */,
+				3F5759201B5CB51C00E11183 /* InfoViewController.h */,
+				3F5759211B5CB51C00E11183 /* InfoViewController.m */,
+			);
+			name = InitialPages;
+			sourceTree = "<group>";
+		};
+		3F9A71E41B690D6A00064FFA /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				3F4AC9821B5E514400429B2C /* UserInputViewController.h */,
+				3F4AC9831B5E514400429B2C /* UserInputViewController.m */,
+				3F4AC97D1B5E180D00429B2C /* cartCollectionViewCell.h */,
+				3F4AC97E1B5E180D00429B2C /* cartCollectionViewCell.m */,
+				3F4AC9771B5E009C00429B2C /* cartViewController.h */,
+				3F4AC9781B5E009C00429B2C /* cartViewController.m */,
+			);
+			name = Cart;
 			sourceTree = "<group>";
 		};
 		4B708A67D18214AC7D351C95 /* Frameworks */ = {
