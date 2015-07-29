@@ -44,10 +44,10 @@
 
 #pragma mark - Helper methods
 -(void) createItems{
-    MoreItem *item0 = [[MoreItem alloc] initWithName:@"About" andImage:@"about.png"];
-    MoreItem *item1 = [[MoreItem alloc] initWithName:@"News" andImage:@"news.png"];
-    MoreItem *item2 = [[MoreItem alloc] initWithName:@"Delivery" andImage:@"delivery.png"];
-    MoreItem *item3 = [[MoreItem alloc] initWithName:@"Settings" andImage:@"settings.png"];
+    MoreItem *item0 = [[MoreItem alloc] initWithName:@"О нас" andImage:@"about.png"];
+    MoreItem *item1 = [[MoreItem alloc] initWithName:@"Акции" andImage:@"news.png"];
+    MoreItem *item2 = [[MoreItem alloc] initWithName:@"Доставка" andImage:@"delivery.png"];
+    MoreItem *item3 = [[MoreItem alloc] initWithName:@"Настройки" andImage:@"settings.png"];
     
     [self.items addObject:item0];
     [self.items addObject:item1];

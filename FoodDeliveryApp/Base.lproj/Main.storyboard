@@ -765,11 +765,11 @@
             </objects>
             <point key="canvasLocation" x="480" y="389"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--МЕНЮ-->
         <scene sceneID="Vth-xC-4AX">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ka5-aA-OWJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="OsT-eG-PNh"/>
+                    <tabBarItem key="tabBarItem" title="МЕНЮ" id="OsT-eG-PNh"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="t6g-lw-Kxf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -792,11 +792,11 @@
             </objects>
             <point key="canvasLocation" x="839" y="389"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--ЗАКАЗЫ-->
         <scene sceneID="Dth-GB-YwK">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pmu-9R-ejP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="history.png" id="fd9-Bd-p4g"/>
+                    <tabBarItem key="tabBarItem" title="ЗАКАЗЫ" image="history.png" id="fd9-Bd-p4g"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Xgo-f0-DRK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1522,11 +1522,11 @@
             </objects>
             <point key="canvasLocation" x="1546" y="1856"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--РЕСТОРАНЫ-->
         <scene sceneID="ReS-eH-Zp6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3XR-Xv-PFS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="daO-ZG-niX"/>
+                    <tabBarItem key="tabBarItem" title="РЕСТОРАНЫ" id="daO-ZG-niX"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="DKC-78-MjP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1547,11 +1547,11 @@
             </objects>
             <point key="canvasLocation" x="480" y="1856"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--ЕЩЕ-->
         <scene sceneID="ecb-yP-wiQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EkP-lc-RlU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="45i-Lb-aeV"/>
+                    <tabBarItem key="tabBarItem" title="ЕЩЕ" id="45i-Lb-aeV"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="MJv-vg-uc3">
