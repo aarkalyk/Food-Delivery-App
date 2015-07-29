@@ -75,7 +75,7 @@
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
     return  0;
 }
-
+//
 /*
 #pragma mark - Navigation
 
