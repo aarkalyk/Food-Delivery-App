@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Arkalyk. All rights reserved.
 //
 
-#import "customMenuCell.h"
 #import "itemQuantityCollectionViewCell.h"
+#import "customMenuCell.h"
 
 @implementation customMenuCell
 
