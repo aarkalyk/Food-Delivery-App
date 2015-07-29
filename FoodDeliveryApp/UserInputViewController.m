@@ -37,6 +37,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *changeMoneyLabel;
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumberlabel;
 @property (weak, nonatomic) IBOutlet UIImageView *callBackImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *placeHolder;
 
 @end
 
@@ -51,9 +52,11 @@
     self.changeMoneyLabel.delegate = self;
     self.phoneNumberlabel.delegate = self;
     
-    //hidning a callBack image
-    self.callBackImageView.image = [UIImage imageNamed:@"logo.png"];
+    //hidning placeholders
+    self.callBackImageView.image = [UIImage imageNamed:@"placeHolderWhite.png"];
+    self.placeHolder.image = [UIImage imageNamed:@"logo.png"];
     self.callBackImageView.hidden = YES;
+    self.placeHolder.hidden = YES;
     
     //getting orderInfo from local memory
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -246,6 +249,7 @@
     
     [self saveHistory];
     self.callBackImageView.hidden = NO;
+    self.placeHolder.hidden = NO;
 }
 // On Failure
 -(void)messageFailed:(SKPSMTPMessage *)message error:(NSError *)error{
