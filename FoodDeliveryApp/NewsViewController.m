@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic) NSMutableArray *newsArray;
 @property (nonatomic) News *tempNews;
+@property (weak, nonatomic) IBOutlet UIImageView *whitePlaceHolder;
+@property (weak, nonatomic) IBOutlet UIImageView *logoPlaceHolder;
 
 @end
 
@@ -24,6 +26,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //setting up the placeholders
+    self.whitePlaceHolder.image = [UIImage imageNamed:@"placeHolderWhite.png"];
+    self.whitePlaceHolder.hidden = NO;
+    self.logoPlaceHolder.image = [UIImage imageNamed:@"logo.png"];
+    self.logoPlaceHolder.hidden = NO;
     
     self.newsArray = [NSMutableArray new];
     
@@ -39,6 +47,22 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Helper methods
+-(void) hidePlaceHolder{
+    self.whitePlaceHolder.alpha = 1.0f;
+    self.logoPlaceHolder.alpha = 1.0f;
+    // Then fades it away after 2 seconds (the cross-fade animation will take 0.5s)
+    [UIView animateWithDuration:0.5 delay:1.0 options:0 animations:^{
+        // Animate the alpha value of your imageView from 1.0 to 0.0 here
+        self.whitePlaceHolder.alpha = 0.0f;
+        self.logoPlaceHolder.alpha = 0.0f;
+    } completion:^(BOOL finished) {
+        // Once the animation is completed and the alpha has gone to 0.0, hide the view for good
+        self.whitePlaceHolder.hidden = YES;
+        self.logoPlaceHolder.hidden = YES;
+    }];
 }
 
 #pragma mark - Parse methods
@@ -57,6 +81,7 @@
                     [self addNewNews:news];
                 }];
             }
+            [self hidePlaceHolder];
         }
     }];
 }

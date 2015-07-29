@@ -765,11 +765,11 @@
             </objects>
             <point key="canvasLocation" x="480" y="389"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="Vth-xC-4AX">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ka5-aA-OWJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="OsT-eG-PNh"/>
+                    <tabBarItem key="tabBarItem" title="" id="OsT-eG-PNh"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="t6g-lw-Kxf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -792,11 +792,11 @@
             </objects>
             <point key="canvasLocation" x="839" y="389"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="Dth-GB-YwK">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pmu-9R-ejP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="history.png" id="fd9-Bd-p4g"/>
+                    <tabBarItem key="tabBarItem" title="" image="history.png" id="fd9-Bd-p4g"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Xgo-f0-DRK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1073,11 +1073,16 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oby-t7-quN">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N2W-Af-ABk">
+                                <rect key="frame" x="110" y="234" width="100" height="100"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerY" secondItem="N2W-Af-ABk" secondAttribute="centerY" id="5vc-li-5Eq"/>
                             <constraint firstItem="Oby-t7-quN" firstAttribute="bottom" secondItem="TiE-Ma-giL" secondAttribute="bottomMargin" id="8oO-7r-Mu8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="AmS-B5-GJN" secondAttribute="trailing" constant="-16" id="9ch-gI-UdE"/>
+                            <constraint firstAttribute="centerX" secondItem="N2W-Af-ABk" secondAttribute="centerX" id="PmE-Jz-fCo"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Oby-t7-quN" secondAttribute="trailing" constant="-16" id="RNx-IX-dkU"/>
                             <constraint firstItem="AmS-B5-GJN" firstAttribute="leading" secondItem="TiE-Ma-giL" secondAttribute="leadingMargin" constant="-16" id="dmh-wN-RXt"/>
                             <constraint firstItem="Oby-t7-quN" firstAttribute="leading" secondItem="TiE-Ma-giL" secondAttribute="leadingMargin" constant="-16" id="r4k-aP-cEH"/>
@@ -1089,6 +1094,8 @@
                     <navigationItem key="navigationItem" title="АКЦИИ" id="TdL-XM-vL0"/>
                     <connections>
                         <outlet property="collectionView" destination="AmS-B5-GJN" id="y5V-Du-XY4"/>
+                        <outlet property="logoPlaceHolder" destination="N2W-Af-ABk" id="CFz-Pn-cQ0"/>
+                        <outlet property="whitePlaceHolder" destination="Oby-t7-quN" id="Ft7-wE-UQh"/>
                         <segue destination="vU0-xM-Cbg" kind="push" identifier="detailedNews" id="cDB-FA-VIm"/>
                     </connections>
                 </viewController>
@@ -1515,11 +1522,11 @@
             </objects>
             <point key="canvasLocation" x="1546" y="1856"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="ReS-eH-Zp6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3XR-Xv-PFS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="daO-ZG-niX"/>
+                    <tabBarItem key="tabBarItem" title="" id="daO-ZG-niX"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="DKC-78-MjP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1540,11 +1547,11 @@
             </objects>
             <point key="canvasLocation" x="480" y="1856"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="ecb-yP-wiQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EkP-lc-RlU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="45i-Lb-aeV"/>
+                    <tabBarItem key="tabBarItem" title="" id="45i-Lb-aeV"/>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="MJv-vg-uc3">
