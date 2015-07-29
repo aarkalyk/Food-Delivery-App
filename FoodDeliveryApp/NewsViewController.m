@@ -15,10 +15,10 @@
 @interface NewsViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (nonatomic) NSMutableArray *newsArray;
-@property (nonatomic) News *tempNews;
 @property (weak, nonatomic) IBOutlet UIImageView *whitePlaceHolder;
 @property (weak, nonatomic) IBOutlet UIImageView *logoPlaceHolder;
+@property (nonatomic) NSMutableArray *newsArray;
+@property (nonatomic) News *tempNews;
 
 @end
 
