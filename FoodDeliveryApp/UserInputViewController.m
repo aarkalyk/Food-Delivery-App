@@ -54,7 +54,7 @@
     
     //hidning placeholders
     self.callBackImageView.image = [UIImage imageNamed:@"placeHolderWhite.png"];
-    self.placeHolder.image = [UIImage imageNamed:@"logo.png"];
+    self.placeHolder.image = [UIImage imageNamed:@"orderPlaceHolder.png"];
     self.callBackImageView.hidden = YES;
     self.placeHolder.hidden = YES;
     
