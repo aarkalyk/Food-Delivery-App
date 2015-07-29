@@ -38,7 +38,7 @@
 }
 
 #pragma mark - Parse methods
-
+//empty so far
 
 #pragma mark - Collectionview delegate
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
