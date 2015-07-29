@@ -12,8 +12,9 @@
 @interface MoreItem : NSObject
 
 @property (nonatomic) NSString *name;
+@property (nonatomic) NSString *rusName;
 @property (nonatomic) NSString *imageName;
 
--(instancetype) initWithName:(NSString *)name andImage:(NSString *)imageName;
+-(instancetype) initWithName:(NSString *)name andRusName:(NSString *)rusName andImage:(NSString *)imageName;
 
 @end

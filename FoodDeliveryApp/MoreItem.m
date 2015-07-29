@@ -10,11 +10,12 @@
 
 @implementation MoreItem
 
--(instancetype)initWithName:(NSString *)name andImage:(NSString *)imageName{
+-(instancetype)initWithName:(NSString *)name andRusName:(NSString *)rusName andImage:(NSString *)imageName{
     self = [super init];
     
     if (self) {
         self.name = name;
+        self.rusName = rusName;
         self.imageName = imageName;
     }
     

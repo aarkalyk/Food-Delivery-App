@@ -67,6 +67,14 @@
     return CGSizeMake(CGRectGetWidth(self.view.frame), 450);
 }
 
+-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
+    return 0;
+}
+
+-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
+    return  0;
+}
+
 /*
 #pragma mark - Navigation
 

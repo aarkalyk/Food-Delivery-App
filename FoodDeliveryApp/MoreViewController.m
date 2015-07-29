@@ -44,10 +44,10 @@
 
 #pragma mark - Helper methods
 -(void) createItems{
-    MoreItem *item0 = [[MoreItem alloc] initWithName:@"О нас" andImage:@"about.png"];
-    MoreItem *item1 = [[MoreItem alloc] initWithName:@"Акции" andImage:@"news.png"];
-    MoreItem *item2 = [[MoreItem alloc] initWithName:@"Доставка" andImage:@"delivery.png"];
-    MoreItem *item3 = [[MoreItem alloc] initWithName:@"Настройки" andImage:@"settings.png"];
+    MoreItem *item0 = [[MoreItem alloc] initWithName:@"About" andRusName:@"О нас" andImage:@"about.png"];
+    MoreItem *item1 = [[MoreItem alloc] initWithName:@"News" andRusName:@"Акции" andImage:@"news.png"];
+    MoreItem *item2 = [[MoreItem alloc] initWithName:@"Delivery" andRusName:@"Доставка" andImage:@"delivery.png"];
+    MoreItem *item3 = [[MoreItem alloc] initWithName:@"Settings" andRusName:@"Настройки" andImage:@"settings.png"];
     
     [self.items addObject:item0];
     [self.items addObject:item1];
@@ -70,7 +70,7 @@
     MoreCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     MoreItem *item = self.items[indexPath.row];
     
-    cell.name.text = item.name;
+    cell.name.text = item.rusName;
     cell.name.textColor = [UIColor blackColor];
     cell.line.backgroundColor = [UIColor colorWithRed:169/255.0 green:169/255.0 blue:169/255.0 alpha:0.5];
     cell.arrowImageView.image = [UIImage imageNamed:@"rightArrow.png"];
@@ -95,7 +95,6 @@
     MoreItem *item = self.items[indexPath.row];
     [self performSegueWithIdentifier:item.name sender:self];
 }
-//
 
 /*
 #pragma mark - Navigation
