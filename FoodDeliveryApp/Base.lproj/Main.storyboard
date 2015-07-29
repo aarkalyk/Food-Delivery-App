@@ -1212,7 +1212,7 @@
                                     </collectionView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="qYQ-YC-Fzx" secondAttribute="centerX" id="vdR-mB-b9G"/>
+                                    <constraint firstAttribute="centerX" secondItem="qYQ-YC-Fzx" secondAttribute="centerX" id="sQD-ot-OOg"/>
                                 </constraints>
                             </scrollView>
                         </subviews>

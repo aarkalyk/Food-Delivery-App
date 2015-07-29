@@ -26,6 +26,7 @@
     
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
+    self.collectionView.clipsToBounds = YES;
     self.collectionView.backgroundColor = [UIColor clearColor];
     [self.collectionView registerClass:[DeliveryCollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
     // Do any additional setup after loading the view.
@@ -64,7 +65,7 @@
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(CGRectGetWidth(self.view.frame), 450);
+    return CGSizeMake(CGRectGetWidth(self.collectionView.frame), 450);
 }
 
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
