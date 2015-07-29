@@ -23,6 +23,7 @@
 @property (nonatomic) NSMutableArray *orderPrices;
 @property (nonatomic) NSMutableArray *orderQuantities;
 @property (weak, nonatomic) IBOutlet UIButton *cartButton;
+@property (nonatomic) UIColor *customGreen;
 
 @end
 
@@ -31,7 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSLog(@"%@", self.categoryName);
+    self.customGreen = [UIColor colorWithRed:89/255.0 green:218/255.0 blue:145/255.0 alpha:1];
     
     self.products = [NSMutableArray new];
     
@@ -305,7 +306,7 @@
         [cell.button setBackgroundColor:[UIColor redColor]];
     }else{
         [cell.button setTitle:@"+" forState:UIControlStateNormal];
-        [cell.button setBackgroundColor:[UIColor greenColor]];
+        [cell.button setBackgroundColor:self.customGreen];
     }
     
     [cell.button addTarget:self action:@selector(addOrder:) forControlEvents:UIControlEventTouchUpInside];
@@ -318,8 +319,8 @@
     cell.leftButton.tag = indexPath.row;
     cell.hiddenButton.tag = indexPath.row;
     
-    cell.hiddenButton.backgroundColor = [UIColor greenColor];
-    [cell.hiddenButton setTitle:@"+" forState:UIControlStateNormal];
+    cell.hiddenButton.backgroundColor = self.customGreen;
+    [cell.hiddenButton setTitle:@"x" forState:UIControlStateNormal];
     cell.hiddenButton.hidden = YES;
     
     [cell.rightButton setImage:[UIImage imageNamed:@"rightArrowWhite.png"] forState:UIControlStateNormal];
