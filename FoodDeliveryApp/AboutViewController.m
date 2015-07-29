@@ -39,7 +39,9 @@
     }
     NSLog(@"%f", self.scrollableHeight);
     
-    self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame), self.scrollableHeight);
+    if (CGRectGetWidth(self.view.frame) == 320) {
+        self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.view.frame), self.scrollableHeight);
+    }
     
     self.imageView.image = [UIImage imageNamed:@"building.jpg"];
 
