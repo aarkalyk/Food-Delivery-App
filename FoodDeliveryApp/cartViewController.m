@@ -29,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //custom green color
+    //custom green color /
     self.customGreen = [UIColor colorWithRed:89/255.0 green:218/255.0 blue:145/255.0 alpha:1];
     
     self.minimumOrderPriceLabel.text = @"*Минимальный заказ 2000 тенге";
