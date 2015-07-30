@@ -25,6 +25,8 @@
 @property (nonatomic) UIImage *mainImage;
 
 @property (nonatomic) NSMutableArray *restaurants;
+@property (nonatomic) NSMutableArray *localObjects;
+@property (nonatomic) NSMutableArray *namesFromParse;
 @property (nonatomic) NSMutableArray *restaurantImages;
 @property (weak, nonatomic) IBOutlet UIButton *cartButton;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -132,7 +134,9 @@
                     [object pinInBackground];
                     [self addRestaurant:restaurant];
                 }
+                [self.namesFromParse addObject:name];
             }
+            [self updateLocalData];
         }
     }];
 }
@@ -175,8 +179,35 @@
                 [self addImage:self.image3];
                 Restaurant *restaurant = [[Restaurant alloc] initWithName:name andWorkHours:workHours andAddressString:addressString andCoordinate:CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude) anMainImage:self.mainImage andImagesArray:self.restaurantImages andPhoneNo:phoneNo];
                 [self addRestaurant:restaurant];
+                [self.localObjects addObject:object];
             }
         }
+    }];
+}
+
+-(void)updateLocalData{
+    BOOL exists = NO;
+    for (int i = 0; i < self.restaurants.count; i++) {
+        for (int j = 0; j < self.namesFromParse.count; j++) {
+            Restaurant *restaurant = self.restaurants[i];
+            if ([restaurant.name isEqualToString:self.namesFromParse[j]]) {
+                exists = YES;
+            }
+        }
+        if (!exists) {
+            [self deletObjectFromLocal:self.localObjects[i]];
+            [self.localObjects removeObjectAtIndex:i];
+            [self.restaurants removeObjectAtIndex:i];
+            [self.collectionView reloadData];
+        }
+    }
+}
+
+-(void)deletObjectFromLocal:(PFObject *)object{
+    PFQuery *query = [PFQuery queryWithClassName:@"Restaurants"];
+    [query fromLocalDatastore];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        [object unpinInBackground];
     }];
 }
 
