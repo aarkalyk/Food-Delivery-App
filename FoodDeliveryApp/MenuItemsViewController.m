@@ -27,6 +27,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *whitePlaceHolder;
 @property (weak, nonatomic) IBOutlet UIImageView *logoPlaceHolder;
 
+@property (nonatomic) NSMutableArray *namesFromParse;
+@property (nonatomic) NSMutableArray *localObjects;
+
 @end
 
 @implementation MenuItemsViewController
@@ -43,6 +46,8 @@
     self.customGreen = [UIColor colorWithRed:89/255.0 green:218/255.0 blue:145/255.0 alpha:1];
     
     self.products = [NSMutableArray new];
+    self.namesFromParse = [NSMutableArray new];
+    self.localObjects = [NSMutableArray new];
     
     self.started = NO;
     
@@ -58,7 +63,8 @@
     [self.itemCollectionView registerClass:[customMenuCell class] forCellWithReuseIdentifier:@"Cell"];
     
     
-    [self downloadNames];
+    [self getDataFromLocalDatastore];
+    [self downloadImages];
     
     // Do any additional setup after loading the view.
 }
@@ -275,7 +281,55 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Products"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            int i = 0;
+            for (PFObject *object in objects) {
+                if ([self.categoryName isEqualToString:object[@"category"]]) {
+                    NSString *name = object[@"name"];
+                    NSString *descr = object[@"descr"];
+                    BOOL isAdded = NO;
+                    int quantity = 0;
+                    int price = [object[@"price"] intValue];
+                    
+                    for (int i = 0; i < self.orderNames.count; i++) {
+                        if ([name isEqualToString:self.orderNames[i]]) {
+                            quantity = [self.orderQuantities[i] intValue];
+                            isAdded = YES;
+                        }
+                    }
+                    
+                    BOOL existsInLocal = NO;
+                    
+                    for (int i = 0; i< self.products.count; i++) {
+                        Product *tempProduct = self.products[i];
+                        if ([tempProduct.name isEqualToString:name] && [tempProduct.descr isEqualToString:descr]) {
+                            existsInLocal = YES;
+                            NSLog(@"exists in local");
+                        }
+                    }
+                    
+                    if (!existsInLocal) {
+                        PFFile *file = object[@"image"];
+                        [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                            UIImage *image = [UIImage imageWithData:data];
+                            Product *product = [[Product alloc] initWithName:name andDescr:descr andImage:image andQuan:quantity isAdded:isAdded andPrice:price];
+                            [self addNewProduct:product];
+                            [self.itemCollectionView reloadData];
+                        }];
+                    }
+                    [self.namesFromParse addObject:name];
+                }
+                [self upDateLocalData];
+                [object pinInBackground];
+            }
+            [self hidePlaceHolder];
+        }
+    }];
+}
+
+-(void)getDataFromLocalDatastore{
+    PFQuery *query = [PFQuery queryWithClassName:@"Products"];
+    [query fromLocalDatastore];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
             for (PFObject *object in objects) {
                 if ([self.categoryName isEqualToString:object[@"category"]]) {
                     NSString *name = object[@"name"];
@@ -295,15 +349,47 @@
                     [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
                         UIImage *image = [UIImage imageWithData:data];
                         Product *product = [[Product alloc] initWithName:name andDescr:descr andImage:image andQuan:quantity isAdded:isAdded andPrice:price];
-                        [self.products replaceObjectAtIndex:i withObject:product];
-                        [self.itemCollectionView reloadData];
+                        [self addNewProduct:product];
                     }];
-                    i++;
+                    [self.localObjects addObject:object];
+                    [self hidePlaceHolder];
                 }
+                //[object unpinInBackground];
             }
-            [self hidePlaceHolder];
         }
     }];
+}
+
+-(void)upDateLocalData{
+    BOOL exists = NO;
+    for (int i = 0;  i < self.products.count; i++) {
+        for (int j = 0;  j < self.namesFromParse.count; j++) {
+            Product *product = self.products[i];
+            if ([product.name isEqualToString:self.namesFromParse[j]]) {
+                exists = YES;
+            }
+        }
+        if (!exists) {
+            [self deletObjectFromLocal:self.localObjects[i]];
+            [self.localObjects removeObjectAtIndex:i];
+            [self.products removeObjectAtIndex:i];
+            [self.itemCollectionView reloadData];
+        }
+    }
+}
+
+-(void)deletObjectFromLocal:(PFObject *)object{
+    PFQuery *query = [PFQuery queryWithClassName:@"Products"];
+    [query fromLocalDatastore];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        [object unpinInBackground];
+    }];
+}
+
+-(void)addNewProduct:(Product *)product{
+    [self.products addObject:product];
+    [self.itemCollectionView reloadData];
+    NSLog(@"%zd",self.products.count);
 }
 
 #pragma mark - Collectionview delegate methods
