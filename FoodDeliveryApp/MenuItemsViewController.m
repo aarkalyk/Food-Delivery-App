@@ -375,6 +375,7 @@
             [self.products removeObjectAtIndex:i];
             [self.itemCollectionView reloadData];
         }
+        exists = NO;
     }
 }
 

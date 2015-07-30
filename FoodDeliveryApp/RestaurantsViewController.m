@@ -27,6 +27,7 @@
 @property (nonatomic) NSMutableArray *restaurants;
 @property (nonatomic) NSMutableArray *localObjects;
 @property (nonatomic) NSMutableArray *namesFromParse;
+@property (nonatomic) NSMutableArray *namesFromLocalDatastore;
 @property (nonatomic) NSMutableArray *restaurantImages;
 @property (weak, nonatomic) IBOutlet UIButton *cartButton;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -42,6 +43,9 @@
     
     self.images = [NSMutableArray new];
     self.names = [NSMutableArray new];
+    
+    self.namesFromLocalDatastore = [NSMutableArray new];
+    self.namesFromParse = [NSMutableArray new];
     
     [self.cartButton setImage:[UIImage imageNamed:@"cart.png"] forState:UIControlStateNormal];
     self.cartButton.frame = CGRectMake(0, 0, 44, 44);
@@ -180,6 +184,7 @@
                 Restaurant *restaurant = [[Restaurant alloc] initWithName:name andWorkHours:workHours andAddressString:addressString andCoordinate:CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude) anMainImage:self.mainImage andImagesArray:self.restaurantImages andPhoneNo:phoneNo];
                 [self addRestaurant:restaurant];
                 [self.localObjects addObject:object];
+                [self.namesFromLocalDatastore addObject:name];
             }
         }
     }];
@@ -187,19 +192,27 @@
 
 -(void)updateLocalData{
     BOOL exists = NO;
-    for (int i = 0; i < self.restaurants.count; i++) {
+    
+    for (int i = 0; i < self.namesFromLocalDatastore.count; i++) {
+        NSLog(@"%@", self.namesFromLocalDatastore);
+        NSLog(@"%@", self.namesFromParse);
         for (int j = 0; j < self.namesFromParse.count; j++) {
-            Restaurant *restaurant = self.restaurants[i];
-            if ([restaurant.name isEqualToString:self.namesFromParse[j]]) {
+            if ([self.namesFromLocalDatastore[i] isEqualToString:self.namesFromParse[j]]) {
+                NSLog(@"existsssss");
                 exists = YES;
             }
         }
         if (!exists) {
             [self deletObjectFromLocal:self.localObjects[i]];
             [self.localObjects removeObjectAtIndex:i];
+            [self.names removeObjectAtIndex:i];
+            [self.images removeObjectAtIndex:i];
+            NSLog(@"before %zd", self.restaurants.count);
             [self.restaurants removeObjectAtIndex:i];
+            NSLog(@"after %zd", self.restaurants.count);
             [self.collectionView reloadData];
         }
+        exists = NO;
     }
 }
 

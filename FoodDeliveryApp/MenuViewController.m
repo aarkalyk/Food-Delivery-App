@@ -182,6 +182,7 @@
             [self.items removeObjectAtIndex:i];
             [self.menuCollectionView reloadData];
         }
+        exists = NO;
     }
 }
 
