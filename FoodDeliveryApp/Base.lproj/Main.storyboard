@@ -272,11 +272,18 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DTy-GW-IZs">
+                                <rect key="frame" x="0.0" y="21" width="320" height="526"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="8SQ-pf-t7E" firstAttribute="leading" secondItem="qaE-SV-UoT" secondAttribute="leadingMargin" constant="-16" id="Fqt-8Z-4iF"/>
+                            <constraint firstItem="DTy-GW-IZs" firstAttribute="leading" secondItem="qaE-SV-UoT" secondAttribute="leadingMargin" constant="-16" id="KxQ-bk-tSP"/>
                             <constraint firstAttribute="bottomMargin" secondItem="8SQ-pf-t7E" secondAttribute="bottom" constant="42" id="OLv-OZ-rzP"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="DTy-GW-IZs" secondAttribute="bottom" constant="21" id="V8V-wx-bDD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DTy-GW-IZs" secondAttribute="trailing" constant="-16" id="V8j-5O-bzb"/>
+                            <constraint firstItem="DTy-GW-IZs" firstAttribute="top" secondItem="qaE-SV-UoT" secondAttribute="topMargin" constant="21" id="qMB-Wc-QbH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8SQ-pf-t7E" secondAttribute="trailing" constant="-16" id="uuU-l3-LkS"/>
                             <constraint firstItem="8SQ-pf-t7E" firstAttribute="top" secondItem="qaE-SV-UoT" secondAttribute="topMargin" id="zfN-43-z87"/>
                         </constraints>
@@ -300,6 +307,7 @@
                     <connections>
                         <outlet property="cartButton" destination="8jZ-1w-g7Q" id="nhS-EW-Bqs"/>
                         <outlet property="itemCollectionView" destination="8SQ-pf-t7E" id="Sg0-1Z-sHA"/>
+                        <outlet property="whitePlaceHolder" destination="DTy-GW-IZs" id="z0o-Zs-yvp"/>
                         <segue destination="ud1-k8-bFc" kind="push" identifier="descriptionSegue" id="rUh-jd-4ms"/>
                         <segue destination="Ofc-1o-Qyg" kind="push" identifier="menuItemsToCart" id="zBo-h0-7qV"/>
                     </connections>

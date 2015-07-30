@@ -13,16 +13,18 @@
 #import "MenuItem.h"
 
 @interface MenuViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+
 @property (weak, nonatomic) IBOutlet UICollectionView *menuCollectionView;
+@property (nonatomic) NSMutableArray *localObjects;
 @property (nonatomic) NSMutableArray *items;
+@property (nonatomic) NSMutableArray *names;
 
 @property (weak, nonatomic) IBOutlet UIImageView *placeHolderImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *logoPlaceHolder;
 @property (nonatomic) UIImage *defaultImage;
-
 @property (weak, nonatomic) IBOutlet UIButton *cartButton;
-
 @property (nonatomic) NSString *categoryName;
+
 @end
 
 @implementation MenuViewController
@@ -79,7 +81,8 @@
     self.menuCollectionView.dataSource = self;
     [self.menuCollectionView setBackgroundColor:[UIColor clearColor]];
     
-    [self downloadNames];
+    [self getDataFromLocalDatastore];
+    [self downloadImages];
     // Do any additional setup after loading the view.
 }
 
@@ -132,20 +135,95 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Categories"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            int i = 0;
+            for (PFObject *object in objects) {
+                NSString *name = object[@"name"];
+                PFFile *file = object[@"image"];
+                [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                    BOOL exists = NO;
+                    
+                    UIImage *image = [UIImage imageWithData:data];
+                    MenuItem *item = [[MenuItem alloc] initWithName:name andImage:image];
+                    
+                    for (int j = 0; j < self.items.count; j++) {
+                        MenuItem *localItem = self.items[j];
+                        NSLog(@"loop is running");
+                        if([name isEqualToString:localItem.name]){
+                            NSLog(@"names are equal");
+                            exists = YES;
+                        }
+                    }
+                    if (!exists) {
+                        [self addNewItem:item];
+                        [object pinInBackground];
+                    }
+                
+                    [self.menuCollectionView reloadData];
+                }];
+                [self.names addObject:name];
+            }
+            [self hidePlaceHolder];
+            [self upDateLocalData];
+        }
+    }];
+}
+
+-(void)upDateLocalData{
+    BOOL exists = NO;
+    for (int i = 0;  i < self.items.count; i++) {
+        for (int j = 0;  j < self.names.count; j++) {
+            MenuItem *item = self.items[i];
+            if ([item.name isEqualToString:self.names[j]]) {
+                exists = YES;
+            }
+        }
+        if (!exists) {
+            [self deletObjectFromLocal:self.localObjects[i]];
+            [self.localObjects removeObjectAtIndex:i];
+            [self.items removeObjectAtIndex:i];
+            [self.menuCollectionView reloadData];
+        }
+    }
+}
+
+-(void)deletObjectFromLocal:(PFObject *)object{
+    PFQuery *query = [PFQuery queryWithClassName:@"Categories"];
+    [query fromLocalDatastore];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        [object unpinInBackground];
+    }];
+}
+
+-(void)getDataFromLocalDatastore{
+    PFQuery *query = [PFQuery queryWithClassName:@"Categories"];
+    [query fromLocalDatastore];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
             for (PFObject *object in objects) {
                 NSString *name = object[@"name"];
                 PFFile *file = object[@"image"];
                 [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
                     UIImage *image = [UIImage imageWithData:data];
                     MenuItem *item = [[MenuItem alloc] initWithName:name andImage:image];
-                    [self.items replaceObjectAtIndex:i withObject:item];
-                    [self.menuCollectionView reloadData];
+                    [self addNewItem:item];
+                    [self addNewObject:object];
                 }];
-                i++;
+                //[object unpinInBackground];
+            }
+            if (objects.count != 0) {
+                [self hidePlaceHolder];
             }
         }
     }];
+}
+
+-(void)addNewObject:(PFObject *)object{
+    [self.localObjects addObject:object];
+}
+
+-(void) addNewItem:(MenuItem *)item{
+    [self.items addObject:item];
+    [self.menuCollectionView reloadData];
+    NSLog(@"%zd", self.items.count);
 }
 
 #pragma mark - CollectionView delegate methods
