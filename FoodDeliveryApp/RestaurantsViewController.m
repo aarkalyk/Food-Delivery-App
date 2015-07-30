@@ -56,6 +56,7 @@
     self.collectionView.dataSource = self;
     [self.collectionView registerClass:[RestaurantCollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
     
+    [self getDataFromLocalDataStore];
     [self downloadData];
     // Do any additional setup after loading the view.
 }
@@ -94,6 +95,61 @@
                 PFGeoPoint *coordinate = object[@"addressGeoPoint"];
                 NSLog(@"%@", name);
                 
+                BOOL exists = NO;
+                for (int i =0; i < self.restaurants.count; i++) {
+                    Restaurant *tempRestaurant = self.restaurants[i];
+                    if ([tempRestaurant.name isEqualToString:name]) {
+                        NSLog(@"exists");
+                        exists = YES;
+                    }
+                }
+                
+                if (!exists) {
+                    PFFile *file = object[@"mainImage"];
+                    [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                        self.mainImage = [UIImage imageWithData:data];
+                        [self.images addObject:self.mainImage];
+                        [self.names addObject:name];
+                        NSLog(@"size of images %zd", self.images.count);
+                        NSLog(@"size of names %zd", self.names.count);
+                        [self hidePlaceHolder];
+                        [self.collectionView reloadData];
+                    }];
+                    
+                    PFFile *file1 = object[@"image1"];
+                    self.image1 = [UIImage imageWithData:[file1 getData]];
+                    [self addImage:self.image1];
+                    
+                    
+                    PFFile *file2 = object[@"image2"];
+                    self.image2 = [UIImage imageWithData:[file2 getData]];
+                    [self addImage:self.image2];
+                    
+                    PFFile *file3 = object[@"image3"];
+                    self.image3 = [UIImage imageWithData:[file3 getData]];
+                    [self addImage:self.image3];
+                    Restaurant *restaurant = [[Restaurant alloc] initWithName:name andWorkHours:workHours andAddressString:addressString andCoordinate:CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude) anMainImage:self.mainImage andImagesArray:self.restaurantImages andPhoneNo:phoneNo];
+                    [object pinInBackground];
+                    [self addRestaurant:restaurant];
+                }
+            }
+        }
+    }];
+}
+
+-(void)getDataFromLocalDataStore{
+    PFQuery *query = [PFQuery queryWithClassName:@"Restaurants"];
+    [query fromLocalDatastore];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                NSString *name = object[@"name"];
+                NSString *phoneNo = object[@"phoneNo"];
+                NSString *workHours = object[@"workHours"];
+                NSString *addressString = object[@"addressString"];
+                PFGeoPoint *coordinate = object[@"addressGeoPoint"];
+                NSLog(@"%@", name);
+                
                 PFFile *file = object[@"mainImage"];
                 [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
                     self.mainImage = [UIImage imageWithData:data];
@@ -120,7 +176,6 @@
                 Restaurant *restaurant = [[Restaurant alloc] initWithName:name andWorkHours:workHours andAddressString:addressString andCoordinate:CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude) anMainImage:self.mainImage andImagesArray:self.restaurantImages andPhoneNo:phoneNo];
                 [self addRestaurant:restaurant];
             }
- 
         }
     }];
 }
