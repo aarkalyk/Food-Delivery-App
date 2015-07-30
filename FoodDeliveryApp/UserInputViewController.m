@@ -137,11 +137,11 @@
     NSString *monthDay = [NSString stringWithFormat:@"%@ %zd", monthName, day];
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    self.orderTotalPrices = [[NSMutableArray alloc] initWithArray:[userDefaults objectForKey:@"orderTotalPrices"]];
     
-    self.allOrderNames = [[NSMutableArray alloc] initWithArray:[userDefaults objectForKey:@""]];
-    self.allOrderPrices = [[NSMutableArray alloc] initWithArray:[userDefaults objectForKey:@""]];
-    self.allOrderQuantities = [[NSMutableArray alloc] initWithArray:[userDefaults objectForKey:@""]];
+    self.orderTotalPrices = [[NSMutableArray alloc] initWithArray:[userDefaults objectForKey:@"orderTotalPrices"]];
+    self.allOrderNames = [[NSMutableArray alloc] initWithArray:[userDefaults objectForKey:@"allOrderNames"]];
+    self.allOrderPrices = [[NSMutableArray alloc] initWithArray:[userDefaults objectForKey:@"allOrderPrices"]];
+    self.allOrderQuantities = [[NSMutableArray alloc] initWithArray:[userDefaults objectForKey:@"allOrderQuan"]];
     
     if (!self.allOrderNames) {
         self.allOrderNames = [NSMutableArray new];

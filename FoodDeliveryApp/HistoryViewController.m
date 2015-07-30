@@ -69,6 +69,8 @@
         self.allOrderQuantities = [NSMutableArray new];
     }
     
+    NSLog(@"size %zd", self.allOrderNames.count);
+    NSLog(@"size %zd", self.orderTotalPrices.count);
     
     [self.colllectionView reloadData];
     // Do any additional setup after loading the view.
