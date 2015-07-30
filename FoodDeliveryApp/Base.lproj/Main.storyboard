@@ -275,15 +275,20 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DTy-GW-IZs">
                                 <rect key="frame" x="0.0" y="21" width="320" height="526"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pjn-nQ-2wF">
+                                <rect key="frame" x="110" y="234" width="100" height="100"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="8SQ-pf-t7E" firstAttribute="leading" secondItem="qaE-SV-UoT" secondAttribute="leadingMargin" constant="-16" id="Fqt-8Z-4iF"/>
                             <constraint firstItem="DTy-GW-IZs" firstAttribute="leading" secondItem="qaE-SV-UoT" secondAttribute="leadingMargin" constant="-16" id="KxQ-bk-tSP"/>
+                            <constraint firstAttribute="centerX" secondItem="pjn-nQ-2wF" secondAttribute="centerX" id="Mge-YT-gqQ"/>
                             <constraint firstAttribute="bottomMargin" secondItem="8SQ-pf-t7E" secondAttribute="bottom" constant="42" id="OLv-OZ-rzP"/>
                             <constraint firstAttribute="bottomMargin" secondItem="DTy-GW-IZs" secondAttribute="bottom" constant="21" id="V8V-wx-bDD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DTy-GW-IZs" secondAttribute="trailing" constant="-16" id="V8j-5O-bzb"/>
                             <constraint firstItem="DTy-GW-IZs" firstAttribute="top" secondItem="qaE-SV-UoT" secondAttribute="topMargin" constant="21" id="qMB-Wc-QbH"/>
+                            <constraint firstAttribute="centerY" secondItem="pjn-nQ-2wF" secondAttribute="centerY" id="rYi-L6-JZC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8SQ-pf-t7E" secondAttribute="trailing" constant="-16" id="uuU-l3-LkS"/>
                             <constraint firstItem="8SQ-pf-t7E" firstAttribute="top" secondItem="qaE-SV-UoT" secondAttribute="topMargin" id="zfN-43-z87"/>
                         </constraints>
@@ -307,6 +312,7 @@
                     <connections>
                         <outlet property="cartButton" destination="8jZ-1w-g7Q" id="nhS-EW-Bqs"/>
                         <outlet property="itemCollectionView" destination="8SQ-pf-t7E" id="Sg0-1Z-sHA"/>
+                        <outlet property="logoPlaceHolder" destination="pjn-nQ-2wF" id="QHF-62-jUX"/>
                         <outlet property="whitePlaceHolder" destination="DTy-GW-IZs" id="z0o-Zs-yvp"/>
                         <segue destination="ud1-k8-bFc" kind="push" identifier="descriptionSegue" id="rUh-jd-4ms"/>
                         <segue destination="Ofc-1o-Qyg" kind="push" identifier="menuItemsToCart" id="zBo-h0-7qV"/>
@@ -854,7 +860,7 @@
                                 <cells/>
                             </collectionView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ynx-en-cFO">
-                                <rect key="frame" x="0.0" y="52" width="320" height="465"/>
+                                <rect key="frame" x="0.0" y="52" width="320" height="471"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hvs-Hj-2SB">
                                 <rect key="frame" x="110" y="234" width="100" height="100"/>
@@ -864,14 +870,14 @@
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="hvs-Hj-2SB" secondAttribute="centerY" id="1k1-2Z-jGR"/>
                             <constraint firstAttribute="bottomMargin" secondItem="zXS-r9-efb" secondAttribute="bottom" constant="47" id="Ciy-Yv-Wpx"/>
-                            <constraint firstItem="ynx-en-cFO" firstAttribute="leading" secondItem="ZLj-9y-FfC" secondAttribute="leadingMargin" constant="-16" id="Eb8-rF-wOc"/>
-                            <constraint firstItem="4nd-z1-8fL" firstAttribute="top" secondItem="ynx-en-cFO" secondAttribute="bottom" constant="2" id="S8R-4M-79J"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="ynx-en-cFO" secondAttribute="bottom" constant="45" id="Pbg-7x-RRN"/>
                             <constraint firstItem="zXS-r9-efb" firstAttribute="leading" secondItem="ZLj-9y-FfC" secondAttribute="leadingMargin" constant="-16" id="UTK-Zy-TIa"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zXS-r9-efb" secondAttribute="trailing" constant="-16" id="Z2Y-Vw-SGy"/>
+                            <constraint firstItem="ynx-en-cFO" firstAttribute="top" secondItem="ZLj-9y-FfC" secondAttribute="topMargin" constant="52" id="ZoI-Hu-crx"/>
                             <constraint firstAttribute="centerX" secondItem="hvs-Hj-2SB" secondAttribute="centerX" id="buZ-Om-Ur4"/>
                             <constraint firstItem="zXS-r9-efb" firstAttribute="top" secondItem="ZLj-9y-FfC" secondAttribute="topMargin" constant="9" id="dqS-yR-TVy"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ynx-en-cFO" secondAttribute="trailing" constant="-16" id="nTw-iz-HKl"/>
-                            <constraint firstItem="ynx-en-cFO" firstAttribute="top" secondItem="ZLj-9y-FfC" secondAttribute="topMargin" constant="52" id="yuP-Gc-0L4"/>
+                            <constraint firstItem="ynx-en-cFO" firstAttribute="leading" secondItem="ZLj-9y-FfC" secondAttribute="leadingMargin" constant="-16" id="jkG-3Y-cpB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ynx-en-cFO" secondAttribute="trailing" constant="-16" id="rgf-uy-hqV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Рестораны" id="0k4-iD-T96">
