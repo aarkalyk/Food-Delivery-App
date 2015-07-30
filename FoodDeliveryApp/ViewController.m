@@ -23,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self templateWithName:@"Пицца Хат!" andButtonText:@"Начать!" andImageNamed:@"logo.png"];
+    [self templateWithName:@"Your Company!" andButtonText:@"Начать!" andImageNamed:@"logo.png"];
     
     self.logoImageView.image = self.image;
     self.welcomeLabel.text = @"Добро пожаловать в";

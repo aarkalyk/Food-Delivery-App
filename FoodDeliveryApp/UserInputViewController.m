@@ -10,6 +10,8 @@
 #import <NSData+Base64Additions.h>
 #import <skpsmtpmessage/SKPSMTPMessage.h>
 #import "UserInputViewController.h"
+#import <JGProgressHUD/JGProgressHUD.h>
+
 
 
 @interface UserInputViewController ()<SKPSMTPMessageDelegate>
@@ -24,6 +26,7 @@
 @property (nonatomic) NSMutableArray *allOrderPrices;
 @property (nonatomic) NSMutableArray *allOrderQuantities;
 
+@property (nonatomic) JGProgressHUD *LoadingHUD;
 @property (nonatomic) NSMutableArray *orderDates;
 @property (nonatomic) NSMutableArray *orderNames;
 @property (nonatomic) NSMutableArray *orderPrices;
@@ -201,6 +204,8 @@
         
         [self composeAnEmail];
         [self sendEmailInBackground];
+        self.LoadingHUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
+        [self.LoadingHUD showInView:self.view];
     }
 }
 
@@ -248,16 +253,24 @@
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"orderPrices"];
     
     [self saveHistory];
+    [self.LoadingHUD dismissAnimated:YES];
     self.callBackImageView.hidden = NO;
     self.placeHolder.hidden = NO;
 }
 // On Failure
 -(void)messageFailed:(SKPSMTPMessage *)message error:(NSError *)error{
     // open an alert with just an OK button
+    [self stoploading];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error!" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
     [alert show];
     NSLog(@"delegate - error(%d): %@", [error code], [error localizedDescription]);
 }
+
+-(void)stoploading
+{
+    [self.LoadingHUD dismissAfterDelay:1 animated:YES];
+}
+
 
 
 

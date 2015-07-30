@@ -1,15 +1,18 @@
 PODS:
   - Bolts/Tasks (1.2.0)
+  - JGProgressHUD (1.2.7)
   - Parse (1.7.5.2):
     - Bolts/Tasks (>= 1.2.0)
   - skpsmtpmessage (0.0.1)
 
 DEPENDENCIES:
+  - JGProgressHUD
   - Parse
   - skpsmtpmessage
 
 SPEC CHECKSUMS:
   Bolts: d176cb1e0012175589e389a9db49b85e27787576
+  JGProgressHUD: a45c1d16adddf7e38092ce3f0d71d3955d2de2ec
   Parse: 9a01b8cb054f113b74211370aaf9d982d355729a
   skpsmtpmessage: f6e913380c784dd8d4a9f83c8790a302445a5e05
 
